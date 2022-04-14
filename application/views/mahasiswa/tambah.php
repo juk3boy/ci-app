@@ -1,10 +1,10 @@
 <div class="container">
-    <div class="row mt-3">
+    <div class="row mt-3 justify-content-center">
 
         <div class="col-md-6">
 
             <div class="card">
-                <div class="card-header">
+                <div class="card-header text-center">
                     <h4>Form Tambah Data Mahasiswa</h4>
                 </div>
                 <div class="card-body">
@@ -16,23 +16,22 @@
                     <?php endif; ?>
 
 
-                    <form action="" method="POST">
+                    <form action="<?= base_url('mahasiswa/tambah')?>" method="POST">
                         <div class="form-group">
                             <label for="nama">Nama :</label>
-                            <input type="text" class="form-control" name="nama" id="nama" value="" placeholder="Nama Anda ...">
+                            <input name="nama" id="nama" type="text" class="form-control"  value="" placeholder="Nama Anda ...">
                             <small color="text-red"><?= form_error('nama'); ?></small>
                         </div>
 
                         <div class="form-group mt-2">
                             <label for="nrp">NRP :</label>
-                            <input type="text" class="form-control" name="nrp" id="nrp" value="" aria-describedby="emailHelp" placeholder="NRP Anda ...">
-                            die; ?>
+                            <input name="nrp" id="nrp" type="text" class="form-control" value="" aria-describedby="emailHelp" placeholder="NRP Anda ...">
                             <small><?= form_error('nrp'); ?></small>
                         </div>
 
                         <div class="form-group mt-2">
                             <label for="email">Email :</label>
-                            <input type="text" class="form-control" name="email" id="email" value="" aria-describedby="emailHelp" placeholder="Email Anda ...">
+                            <input name="email" id="email" type="text" class="form-control" value="" aria-describedby="emailHelp" placeholder="Email Anda ...">
                             <small><?= form_error('email'); ?></small>
                         </div>
 
@@ -49,6 +48,7 @@
 
                         <button type="submit" class="btn btn-primary mt-4 float-end">Tambah Data</button>
                     </form>
+                    
                 </div>
             </div>
 

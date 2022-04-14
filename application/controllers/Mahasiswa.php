@@ -22,10 +22,11 @@ class Mahasiswa extends CI_Controller
         $data['judul'] = 'Daftar Mahasiswa';
 
         $data['mahasiswa'] = $this->Mahasiswa_model->getAllMahasiswa();
-        /**ini utk mengambil dari model database (Mahasiswa_model) */
+        /**ini utk mengambil data dari database (Mahasiswa_model) melalui model */
         $this->load->view('templates/header', $data);
         $this->load->view('mahasiswa/index', $data);
         $this->load->view('templates/footer');
+
     }
 
     public function tambah()
@@ -35,17 +36,18 @@ class Mahasiswa extends CI_Controller
 
         $this->form_validation->set_rules('nama', 'Nama', 'reqiured');
         $this->form_validation->set_rules('nrp', 'NRP', 'reqiured|numeric');
-        $this->form_validation->set_rules('email', 'Email', 'reqiured|valid_email');
+        $this->form_validation->set_rules('email', 'Email', 'reqiured|valid_email|is_unique[mahasiswa.email]');
 
 
 
-        if ($this->form_validation->run() == FALSE) {
+        if($this->form_validation->run() == FALSE) {
 
 
             $this->load->view('templates/header', $data);
-            $this->load->view('mahasiswa/tambah');
+            $this->load->view('mahasiswa/tambah', $data);
             $this->load->view('templates/footer');
-        } else {
+
+        }else{
 
             echo "Berhasil !!!";
         }
